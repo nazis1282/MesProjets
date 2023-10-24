@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>manager</th>
+                    <th>Cout</th>
+                    <th>start Date</th>
+                </tr>
+                <tbody *ngFor="let projet of projets">
+                    <tr>
+                        <td>{{projet.idProjet}}</td>
+                        <td>{{projet.nomProjet}}</td>
+                        <td>{{projet.manager}}</td>
+                        <td>{{projet.Cout}}</td>
+                        <td>{{projet.startDate | date:'dd/MM/yyyy'}}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateProjet',projet.idProjet]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-logging></app-logging>

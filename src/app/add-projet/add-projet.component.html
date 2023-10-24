@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Projet :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Projet</label>
+            <input type="text" [(ngModel)]="newProjet.idProjet" name="idProjet" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Projet</label>
+            <input type="text" [(ngModel)]="newProjet.nomProjet" name="nomProjet" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Manager</label>
+            <input type="text" [(ngModel)]="newProjet.manager" name="manager" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Cout</label>
+            <input type="text" [(ngModel)]="newProjet.Cout" name="cout" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>start date</label>
+            <input type="date" [(ngModel)]="newProjet.startDate" name="startDate" class="form-control">
+        </div>
+        <div class="mt-2">
+
+            <button type="submit" (click)="addProjet()" class="btn btn-success" routerLink="../projets">Ajouter</button>
+        </div>
+    </form>
+</div>
