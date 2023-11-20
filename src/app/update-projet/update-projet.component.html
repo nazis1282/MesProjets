@@ -23,6 +23,13 @@
             <input type="date" [ngModel]="currentProjet.startDate | date: 'yyyy-MM-dd'" (ngModelChange)=" currentProjet.startDate= $event" name="startDate" class="form-control">
         </div>
         <div class="mt-2">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedDomId">
+            <option *ngFor="let cat of domaines" [value]="cat.idDom" >
+            {{cat.nomDom}}
+            </option>
+            </select>
+            </div>
             <button type="submit" (click)="updateProjet()" class="btn btn-success">Modifer</button>
         </div>
     </form>

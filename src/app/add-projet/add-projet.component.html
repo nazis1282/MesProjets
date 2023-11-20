@@ -23,6 +23,15 @@
             <label>start date</label>
             <input type="date" [(ngModel)]="newProjet.startDate" name="startDate" class="form-control">
         </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Domaine</label>
+            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="newIdDom">
+           <option *ngFor="let cat of domaines" [value]="cat.idDom" >
+           {{cat.nomDom}}
+          </option>
+          </select>
+        </div>
+
         <div class="mt-2">
 
             <button type="submit" (click)="addProjet()" class="btn btn-success" routerLink="../projets">Ajouter</button>

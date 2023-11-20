@@ -16,6 +16,6 @@ export class LoggingComponent implements OnInit {
     this.isLatestLogVisible = true;
     setTimeout(() => {
       this.isLatestLogVisible = false;
-    }, 10000/5);
+    }, 30000);
   }
 }

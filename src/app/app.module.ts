@@ -8,6 +8,8 @@ import { AddProjetComponent } from './add-projet/add-projet.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateProjetComponent } from './update-projet/update-projet.component';
 import { LoggingComponent } from './logging/logging.component';
+import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LoggingComponent } from './logging/logging.component';
     ProjetsComponent,
     AddProjetComponent,
     UpdateProjetComponent,
-    LoggingComponent
+    LoggingComponent,
+    LoginComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

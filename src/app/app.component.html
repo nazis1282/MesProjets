@@ -17,25 +17,26 @@
             </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Projets</a>
+                <a class="nav-link dropdown-toggle" href="#" id="projetsDropdown" data-toggle="dropdown">Projets</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" routerLink="/add-projet">Ajouter</a>
+                    <a *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-projet">Ajouter</a>
                     <a class="dropdown-item" href="#">Lister</a>
                 </div>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+            <li><a class="nav-link">{{authService.loggedUser}}</a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">[username]</a>
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown">{{authService.loggedUser}}</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">login</a>
-                    <a class="dropdown-item" href="#">logout</a>
+                    <a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink="login">Login</a>
+                    <a *ngIf="authService.isloggedIn" class="dropdown-item" (click)="onLogout()">Logout</a>
                     <a class="dropdown-item" href="#">Profile</a>
                 </div>
             </li>
         </ul>
     </nav>
+    <router-outlet></router-outlet>
 </body>
 
 </html>
-<router-outlet></router-outlet>

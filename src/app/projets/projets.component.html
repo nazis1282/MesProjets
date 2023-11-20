@@ -8,6 +8,7 @@
                     <th>manager</th>
                     <th>Cout</th>
                     <th>start Date</th>
+                    <th>Domaine</th>
                 </tr>
                 <tbody *ngFor="let projet of projets">
                     <tr>
@@ -16,8 +17,9 @@
                         <td>{{projet.manager}}</td>
                         <td>{{projet.Cout}}</td>
                         <td>{{projet.startDate | date:'dd/MM/yyyy'}}</td>
-                        <td><a class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a></td>
-                        <td><a class="btn btn-success" [routerLink]="['/updateProjet',projet.idProjet]">Modifier</a></td>
+                        <td>{{projet?.domaine?.nomDom}}</td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateProjet',projet.idProjet]">Modifier</a></td>
                     </tr>
                 </tbody>
             </table>
