@@ -21,8 +21,8 @@ export class AddProjetComponent implements OnInit {
   constructor(private projetService:ProjetService,
               private loggingService: LoggingService,
               private router :Router){}
-  ngOnInit() {
-    this.domaines = this.projetService.listeCategories();
+   ngOnInit() {
+    this.domaines = this.projetService.listeDomaines();
   }
   addProjet(){
 

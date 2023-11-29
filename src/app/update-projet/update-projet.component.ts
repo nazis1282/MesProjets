@@ -34,10 +34,13 @@ updatedDomId! : number;
   }
 
   ngOnInit() {
-    this.domaines = this.projetService.listeCategories();
-    this.currentProjet = this.projetService.consulterProjet(this.activateRoute.snapshot. params['id']);
-    this.domaines = this.projetService.listeCategories();
-   console.log(this.currentProjet);
+    this.domaines = this.projetService.listeDomaines();
+    this.currentProjet = this.projetService.consulterProjet(
+      this.activateRoute.snapshot.params['id']
+    );
+    this.updatedDomId=this.currentProjet.domaine.idDom;
+    console.log(this.currentProjet);
   }
+
 
 }

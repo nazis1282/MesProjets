@@ -10,6 +10,8 @@ import { UpdateProjetComponent } from './update-projet/update-projet.component';
 import { LoggingComponent } from './logging/logging.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { RechercheParDomaineComponent } from './recherche-par-domaine/recherche-par-domaine.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     UpdateProjetComponent,
     LoggingComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    RechercheParDomaineComponent,
+    RechercheParNomComponent
   ],
   imports: [
     BrowserModule,
