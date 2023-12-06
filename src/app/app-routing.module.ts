@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'app-forbidden', component: ForbiddenComponent},
   {path : "add-projet", component : AddProjetComponent, canActivate:[ProjetGuard]},
   {path: "rechercheParDomaine", component : RechercheParDomaineComponent},
-  {path: "rechercheParNom", component : RechercheParNomComponent}
+  {path: "rechercheParNom", component : RechercheParNomComponent},
+
 ];
 
 @NgModule({

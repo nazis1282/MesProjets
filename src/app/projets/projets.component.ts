@@ -9,19 +9,30 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProjetsComponent implements OnInit {
 
-  projets : Projet[];
+  projets? : Projet[];
 
   constructor(private projetService: ProjetService , public authService: AuthService ) {
-    this.projets = projetService.ListeProjets();
+    //this.projets = projetService.listeProjet();
   }
+
+  chargerProjets(){
+    this.projetService.listeProjet().subscribe(projs => {
+    this.projets = projs;
+    console.log(projs);
+    });
+    }
 
   supprimerProjet(p:Projet){
     let conf = confirm("Etes-vous sûr ?");
     if (conf)
-    this.projetService.supprimerProjet(p);
+    this.projetService.supprimerProjet(p.idProjet!).subscribe(() => {
+      console.log("projet supprimé");
+      this.chargerProjets();
+      });
+
   }
 
   ngOnInit(): void {
-  }
-
+      this.chargerProjets();
+    }
 }

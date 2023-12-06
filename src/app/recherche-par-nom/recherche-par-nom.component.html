@@ -1,36 +1,32 @@
-<div class="container">
-    <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2 mt-2 ">
-            <label>Nom Produit en tapant</label>
-            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
-        </div>
-    </form>
-
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <table class="table table-striped">
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Projet en tapant</label>
+        <input #nomProjet [(ngModel)]="searchTerm" name="searchTerm" class="form-control">
+    </div>
+</form>
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>manager</th>
+                <th>Cout</th>
+                <th>start Date</th>
+                <th>Domaine</th>
+            </tr>
+            <tbody *ngFor="let projet of projets   | filter:searchTerm  ">
                 <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>manager</th>
-                    <th>Cout</th>
-                    <th>start Date</th>
-                    <th>Domaine</th>
+                    <td>{{projet.idProjet}}</td>
+                    <td>{{projet.nomProjet}}</td>
+                    <td>{{projet.manager}}</td>
+                    <td>{{projet.Cout}}</td>
+                    <td>{{projet.startDate | date:'dd/MM/yyyy'}}</td>
+                    <td>{{projet?.domaine?.nomDom}}</td>
+                    <!--<td><a *ngIf="authService.isAdmin() " class="btn btn-danger " (click)="supprimerProjet(projet) ">Supprimer</a></td>-->
+                    <!--<td><a *ngIf="authService.isAdmin() " class="btn btn-success " [routerLink]="[ '/updateProjet',projet.idProjet] ">Modifier</a></td>-->
                 </tr>
-                <tbody *ngFor="let projet of projets">
-                    <tr>
-                        <td>{{projet.idProjet}}</td>
-                        <td>{{projet.nomProjet}}</td>
-                        <td>{{projet.manager}}</td>
-                        <td>{{projet.Cout}}</td>
-                        <td>{{projet.startDate | date:'dd/MM/yyyy'}}</td>
-                        <td>{{projet?.domaine?.nomDom}}</td>
-                        <!--<td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a></td>
-                            <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateProjet',projet.idProjet]">Modifier</a></td>-->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>
-<app-logging></app-logging>

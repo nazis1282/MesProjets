@@ -17,16 +17,16 @@
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">
             <label>Cout</label>
-            <input type="text" [(ngModel)]="currentProjet.Cout" name="cout" class="form-control">
+            <input type="text" [(ngModel)]="currentProjet.cout" name="cout" class="form-control">
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4"><label>Start Date</label>
             <input type="date" [ngModel]="currentProjet.startDate | date: 'yyyy-MM-dd'" (ngModelChange)=" currentProjet.startDate= $event" name="startDate" class="form-control">
         </div>
         <div class="mt-2">
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedDomId">
-            <option *ngFor="let cat of domaines" [value]="cat.idDom" >
-            {{cat.nomDom}}
+                <select class="form-control form-control-lg" id="iddom" name="iddom" [(ngModel)]="updatedDomId">
+            <option *ngFor="let dom of domaines" [value]="dom.idDom" >
+            {{dom.nomDom}}
             </option>
             </select>
             </div>

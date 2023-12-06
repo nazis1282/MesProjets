@@ -3,7 +3,7 @@
         <h2>Ajouter un Projet :</h2>
     </div>
     <form>
-        <div class="col-sm-2 col-md-2 col-lg-2">
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
             <label>ID Projet</label>
             <input type="text" [(ngModel)]="newProjet.idProjet" name="idProjet" class="form-control">
         </div>
@@ -17,7 +17,7 @@
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">
             <label>Cout</label>
-            <input type="text" [(ngModel)]="newProjet.Cout" name="cout" class="form-control">
+            <input type="text" [(ngModel)]="newProjet.cout" name="cout" class="form-control">
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>start date</label>
@@ -25,9 +25,9 @@
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Domaine</label>
-            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="newIdDom">
-           <option *ngFor="let cat of domaines" [value]="cat.idDom" >
-           {{cat.nomDom}}
+            <select class="form-control form-control-lg" id="idDom" name="idDom" [(ngModel)]="newIdDom">
+           <option *ngFor="let dom of domaines" [value]="dom.idDom" >
+           {{dom.nomDom}}
           </option>
           </select>
         </div>

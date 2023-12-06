@@ -9,21 +9,31 @@ import { ProjetService } from '../services/projet.service';
   styleUrls: ['./recherche-par-domaine.component.css']
 })
 export class RechercheParDomaineComponent implements OnInit {
+  projets!: Projet[];
+  IdDomaines: number | undefined; // Make sure IdDomaines is properly typed
+  domaines!: Domaine[];
 
-  projets!: Projet[] ;
-  IdDomaines!: number;
-  domaines!: Domaine[] ;
-
-  constructor(private projetService: ProjetService) { }
-
+  constructor(private projetService: ProjetService) {}
 
   onChange() {
-      this.projets = this.projetService.rechercherParDomaine(this.IdDomaines);
-      console.log(this.projets);
+    console.log('IdDomaines:', this.IdDomaines);
+
+    // Ensure IdDomaines is defined before making the service call
+    if (this.IdDomaines  && !isNaN(this.IdDomaines)) {
+      this.projetService.rechercherParDomaine(this.IdDomaines)
+        .subscribe(projs => {
+          this.projets = projs;
+        });
+    }else {
+      console.error('idMarque is not a valid number. Cannot make the request.');
+    }
   }
 
   ngOnInit(): void {
-    this.domaines = this.projetService.listeDomaines();
-    console.log(this.domaines);
+    this.projetService.listeDomaines()
+      .subscribe(doms => {
+        this.domaines = doms;
+        console.log(doms);
+      });
   }
 }

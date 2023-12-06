@@ -5,6 +5,6 @@ export class Projet {
   nomProjet? : string;
   startDate? : Date ;
   manager? : string;
-  Cout?:number;
+  cout? : number;
   domaine!:Domaine;
   }

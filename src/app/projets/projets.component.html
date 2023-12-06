@@ -15,7 +15,7 @@
                         <td>{{projet.idProjet}}</td>
                         <td>{{projet.nomProjet}}</td>
                         <td>{{projet.manager}}</td>
-                        <td>{{projet.Cout}}</td>
+                        <td>{{projet.cout}}</td>
                         <td>{{projet.startDate | date:'dd/MM/yyyy'}}</td>
                         <td>{{projet?.domaine?.nomDom}}</td>
                         <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerProjet(projet)">Supprimer</a></td>

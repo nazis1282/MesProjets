@@ -27,19 +27,22 @@ updatedDomId! : number;
 
   updateProjet()
   {
-  this.currentProjet.domaine=this.projetService.consulterDomaine(this.updatedDomId);
-  this.projetService.updateProjet(this.currentProjet);
-  this.router.navigate(['projets']);
-  this.loggingService.log('Projet modifié');
+    this.currentProjet.domaine = this.domaines.find(dom => dom.idDom == this.updatedDomId)!;
+    this.projetService.updateProjet(this.currentProjet).subscribe(proj => {
+    this.router.navigate(['projets']);}
+    );
   }
 
-  ngOnInit() {
-    this.domaines = this.projetService.listeDomaines();
-    this.currentProjet = this.projetService.consulterProjet(
-      this.activateRoute.snapshot.params['id']
-    );
-    this.updatedDomId=this.currentProjet.domaine.idDom;
-    console.log(this.currentProjet);
+  ngOnInit(): void {
+    this.projetService.listeDomaines().
+    subscribe(doms => {this.domaines = doms;
+    console.log(doms);
+    });
+    this.projetService.consulterProjet(this.activateRoute.snapshot.params['id']).
+    subscribe( proj =>{ this.currentProjet = proj;
+      this.updatedDomId =this.currentProjet.domaine.idDom;
+
+    } ) ;
   }
 
 

@@ -9,24 +9,22 @@ import { Projet } from '../model/projet.model';
 })
 export class RechercheParNomComponent implements OnInit {
 
-  constructor(private projetService: ProjetService) { }
-
-  allProjets!: Projet[] ;
-   nomProjet!: string;
   projets! : Projet[];
+  searchTerm!: string;
+  nomProjet!: string;
+  constructor(private projetservice: ProjetService
+    ) {
+    }
+    ngOnInit(): void {
+      this.projetservice.listeProjet().subscribe(
+        (projs: Projet[]) => {
+          this.projets = projs;
+          console.log(projs);
+        },
+        (error) => {
+          console.error('Error fetching projets:', error);
+        }
+      );
+    }
 
-  ngOnInit(): void {
-   this.projets = this.projetService.ListeProjets();
-  }
-   rechercherFilm() {
-    const projetsTrouves = this.projetService.rechercherParNom(this.nomProjet);
-    this.projets = projetsTrouves;
-    console.log(projetsTrouves);
-   }
-   onKeyUp(filterText : string){
-     this.projets = this.allProjets.filter(item =>
-     item?.nomProjet?.toLowerCase().includes(filterText));
-     }
 }
-
-
